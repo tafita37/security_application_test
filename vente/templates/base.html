@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+  <head>
+    <!-- Mobile Specific Meta -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="{% static 'vente/img/fav.png' %}" />
+    <!-- Author Meta -->
+    <meta name="author" content="CodePixar" />
+    <!-- Meta Description -->
+    <meta name="description" content="" />
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="" />
+    <!-- meta character set -->
+    <meta charset="UTF-8" />
+    <!-- Site Title -->
+    <title>{% block title %}Application Security Test{% endblock %}</title>
+
+    <!--
+		CSS
+		============================================= -->
+    <link rel="stylesheet" href="{% static 'vente/css/linearicons.css' %}" />
+    <link rel="stylesheet" href="{% static 'vente/css/owl.carousel.css' %}" />
+    <link rel="stylesheet" href="{% static 'vente/css/themify-icons.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'vente/css/font-awesome.min.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'vente/css/nice-select.css' %}" />
+    <link rel="stylesheet" href="{% static 'vente/css/nouislider.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vente/css/bootstrap.css' %}" />
+    <link rel="stylesheet" href="{% static 'vente/css/main.css' %}" />
+    {% block css %}{% endblock %}
+  </head>
+
+  <body>
+    {% include 'includes/horizontal_menu.html' %}
+    {% include 'includes/banner.html' %}
+    {% block content %}{% endblock %}
+    {% include 'includes/footer.html' %}
+
+    <script src="{% static 'vente/js/vendor/jquery-2.2.4.min.js' %}"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+      integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+      crossorigin="anonymous"
+    ></script>
+    <script src="{% static 'vente/js/vendor/bootstrap.min.js' %}"></script>
+    <script src="{% static 'vente/js/jquery.ajaxchimp.min.js' %}"></script>
+    <script src="{% static 'vente/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'vente/js/jquery.sticky.js' %}"></script>
+    <script src="{% static 'vente/js/nouislider.min.js' %}"></script>
+    <script src="{% static 'vente/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'vente/js/owl.carousel.min.js' %}"></script>
+    <!--gmaps Js-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+    <script src="{% static 'vente/js/gmaps.min.js' %}"></script>
+    <script src="{% static 'vente/js/main.js' %}"></script>
+    {% block js %}{% endblock %}
+  </body>
+</html>
