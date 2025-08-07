@@ -14,3 +14,11 @@ create table product(
     price DOUBLE PRECISION NOT NULL,
     image VARCHAR(255) UNIQUE NOT NULL
 );
+
+create table comment(
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    product_id INTEGER NOT NULL REFERENCES product(id) ON DELETE CASCADE,
+    content TEXT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP 
+);

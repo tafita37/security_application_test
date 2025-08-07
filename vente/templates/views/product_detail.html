@@ -54,45 +54,34 @@
 				<div class="row">
 					<div class="col-lg-6">
 						<div class="comment_list">
+							{% for comment in comments %}
 							<div class="review_item">
 								<div class="media">
 									<div class="d-flex">
-										<img src="img/product/review-1.png" alt="">
+										{% comment %} <img src="img/product/review-1.png" alt=""> {% endcomment %}
 									</div>
 									<div class="media-body">
-										<h4>Blake Ruiz</h4>
-										<h5>12th Feb, 2018 at 05:56 pm</h5>
+										<h4>{{ comment.user.email }}</h4>
+										<h5>{{ comment.created_at|date:"d M, Y H:i" }}</h5>
 									</div>
 								</div>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-									commodo</p>
+								<p>{{ comment.content }}</p>
 							</div>
-							<div class="review_item">
-								<div class="media">
-									<div class="d-flex">
-										<img src="img/product/review-3.png" alt="">
-									</div>
-									<div class="media-body">
-										<h4>Blake Ruiz</h4>
-										<h5>12th Feb, 2018 at 05:56 pm</h5>
-									</div>
-								</div>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-									commodo</p>
-							</div>
+							{% endfor %}
 						</div>
 					</div>
 					<div class="col-lg-6">
 						<div class="review_box">
 							<h4>Post a comment</h4>
-							<form class="row contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+							<form class="row contact_form" action="{% url 'post_comment' %}" method="post" id="contactForm">
+								{% csrf_token %}
 								<div class="col-md-12">
 									<div class="form-group">
-										<textarea class="form-control" name="message" id="message" rows="1" placeholder="Message"></textarea>
+										<textarea class="form-control" name="content" id="message" rows="1" placeholder="Comment"></textarea>
 									</div>
 								</div>
+								<input type="hidden" name="product_id" value="{{ product.id }}">
+								<input type="hidden" name="user_id" value="{{ user_id }}">
 								<div class="col-md-12 text-right">
 									<button type="submit" value="submit" class="btn primary-btn">Submit Now</button>
 								</div>
@@ -104,6 +93,5 @@
 		</div>
 	</div>
 </section>
-<!--================End Product Description Area =================-->
 
 {% endblock %}
