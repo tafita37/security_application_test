@@ -14,8 +14,9 @@ def login_user(request):
     password = request.POST.get('password')
     try:
         user = Users.objects.get(email=email, password=password)
-        print("trouvé")
+        request.session['user_id'] = user.id
+        return redirect("list_products")
     except ObjectDoesNotExist:
         user = None
-        print("introuvable")
-    return redirect("login_user_page")
+        return redirect("login_user_page")
+    
