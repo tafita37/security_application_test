@@ -131,6 +131,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 
+SESSION_COOKIE_HTTPONLY = False  # Dangereux en production !
+SESSION_COOKIE_SECURE = False    # Pour HTTP local
+
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
