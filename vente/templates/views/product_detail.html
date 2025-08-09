@@ -65,7 +65,7 @@
 										<h5>{{ comment.created_at|date:"d M, Y H:i" }}</h5>
 									</div>
 								</div>
-								<p>{{ comment.content }}</p>
+								<p>{{ comment.content|safe }}</p>
 							</div>
 							{% endfor %}
 						</div>
